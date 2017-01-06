@@ -1,0 +1,89 @@
+doctype html
+html
+    head
+        title= title
+
+        link(href='css/bootstrap.css', rel='stylesheet', type='text/css', media='all')
+        // jQuery (necessary for Bootstrap's JavaScript plugins)
+        script(src='js/jquery-1.11.0.min.js')
+
+        script(src='js/bootstrap.min.js')
+
+        script(src='js/main.js')
+        // Custom Theme files
+        link(href='css/style.css', rel='stylesheet', type='text/css', media='all')
+
+        meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    body
+
+        // header start here
+        .header-strip
+        .header
+            .container
+                .header-main
+                    .logo
+                        h1
+                            a(href='#') TODOLTST
+        // 模态框（Modal）
+        #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+            .modal-dialog
+                .modal-content
+                    .modal-header
+                        button.close(type='button', data-dismiss='modal', aria-hidden='true')
+                            | &times;
+                        h4#myModalLabel.modal-title
+                            | &#x65B0;&#x7684;&#x4EFB;&#x52A1;
+                    .modal-body
+                        .row
+                            .input-group
+                                span.input-group-addon #
+                                input.form-control(id= 'binput', type='text', placeholder='任务详情')
+                    .modal-footer
+                        button.btn.btn-default(type='button', data-dismiss='modal')
+                            | &#x5173;&#x95ED;
+                        button.btn.btn-primary(type='button', id= 'bsubmit')
+                            | &#x63D0;&#x4EA4;&#x66F4;&#x6539;
+                // /.modal-content
+            // /.modal
+        // about start here
+        #about.about
+            .container
+                .about-main
+                    .about-bottom
+                        .col-md-6.about-left
+                            .row
+                                .col-md-6.about-left
+                                    h4 &#x4ECA;&#x65E5;&#x5F85;&#x505A;
+                                .col-md-6.about-right
+                                    button.btn.btn-lg.btn-info(type='button', data-toggle='modal', data-target='#myModal')
+                                        | &#x65B0;&#x589E;&#x4EFB;&#x52A1;
+                            - for (var i = 0; i < arr.length; i ++){
+                            .about-grid
+                            .ab-sub-gd
+                                span.glyphicon.glyphicon-star-empty.ab-gd-img(aria-hidden='true', id= arr[i].id )
+                                .ab-gd-text
+                                    h6= arr[i].content
+                                .clearfix
+                            - }
+
+                        .col-md-6.about-right
+                            .row
+                                .col-md-6.about-left
+                                    h4 &#x5386;&#x53F2;&#x5B8C;&#x6210;
+                            - for (var i = 0; i < farr.length; i ++){
+                            .about-grid
+                                .ab-sub-gd
+                                    span.glyphicon.glyphicon-star.ab-gd-img(aria-hidden='true', id= farr[i].id )
+                                    .ab-gd-text
+                                        p= farr[i].content
+                                    .clearfix
+                            -}
+                        .clearfix
+        // about end here
+        // copyright start here
+        .container
+            .copyright
+                .copy-main
+                        p
+                           | Copyright &copy; [WEB2016]HW03_3014218099_&#x738B;&#x6D77;&#x5F1B;
+        // copyright end here
